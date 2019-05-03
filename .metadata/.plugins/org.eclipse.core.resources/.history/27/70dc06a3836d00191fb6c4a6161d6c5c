@@ -1,0 +1,21 @@
+package com.bridgelabz.flipcoin;
+import java.util.Scanner;
+
+public class FlipCoin {
+	public static void main(String[] args) {
+		float head = 0.0f, tail = 0.0f;
+		int fliptimes = 0;
+		Scanner sc = new Scanner(System.in);
+		fliptimes = sc.nextInt();
+		check(fliptimes);
+		
+	}
+
+	private static void check(int fliptimes) {
+		// TODO Auto-generated method stub
+		if(fliptimes <= 0) {
+			System.out.println("Please enter positive number");	
+		}
+	}
+
+}

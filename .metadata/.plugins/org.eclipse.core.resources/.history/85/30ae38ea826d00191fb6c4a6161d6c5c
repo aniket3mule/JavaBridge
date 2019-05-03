@@ -1,0 +1,8 @@
+package com.bridgelabz.flipcoin;
+
+public class FlipCoin {
+	public static void main(String[] args) {
+		
+	}
+
+}
