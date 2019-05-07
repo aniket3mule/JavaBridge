@@ -26,7 +26,7 @@ public class Stopwatch {
 			break;
 		}
 	}
-	private static long elapsed(long start, long stop) {
+	public static long elapsed(long start, long stop) {
 		// TODO Auto-generated method stub
 		long elapsedtime = stop-start;
 		return elapsedtime;
@@ -34,14 +34,13 @@ public class Stopwatch {
 		
 	}
 	
-	private static long start(long startt) {
+	public static long start(long startt) {
 		// TODO Auto-generated method stub
 		startt = System.currentTimeMillis();
-		System.out.println(startt);
 		return startt;
 	}
 	
-	private static long stop(long endt) {
+	public static long stop(long endt) {
 		// TODO Auto-generated method stub
 		endt = System.currentTimeMillis();
 		return endt;

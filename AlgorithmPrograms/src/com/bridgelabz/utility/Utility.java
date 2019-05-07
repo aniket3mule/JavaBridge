@@ -51,29 +51,57 @@ public class Utility {
 		return arr;
 	}
 	
-	
-	
-	
 	//binarySearch method for integer
 	
-	public static int binarySearchNumber(int[] arr, int l, int r, int ele) {
-		int mid=0;
-		while(l<=r) {
-			mid=(l+r)/2;
-			if(arr[mid]==ele) {
+	public static int binarySearchNumber(int[] arr, int ele) {
+		int mid=0, start =0, end = arr.length-1;
+		int arr1[] = insertionSortNew(arr);
+		for (int i : arr1) {
+			System.out.println(i);
+		}
+		while(start<=end) {
+			mid =(start+end)/2;
+			
+			if(arr1[mid]==ele) {
 				return mid;
 			}
-			else if(arr[mid]>ele) {
-				l = mid+1;
-				binarySearchNumber( arr,  l,  r,  ele);
+			
+			if(arr1[mid]<ele) {
+				start = mid+1;
 			}
-			else {
-				r = mid+1;
-				binarySearchNumber( arr,  l,  r,  ele);
+			else if(arr1[mid]>ele) {
+				end = mid-1;
 			}
 		}
 		return -1;
+	}
+	
+	
+	
+	
+	//binarySearch method for String
+	public static int binarySearchString(String[] arr, String ele) {
+		int mid=0, start =0, end = arr.length-1;
+		String arr1[] = insertionSortNewString(arr);
+		while(start<=end) {
+			mid =(start+end)/2;
+			
+			if(arr1[mid].compareTo(ele)==0) {
+				return mid;
+			}
+			
+			if(arr1[mid].compareTo(ele)<0) {
+				start = mid+1;
+			}
+			else if(arr1[mid].compareTo(ele)>0) {
+				end = mid-1;
+			}
 		}
+		return -1;
+	}
+	
+	
+	
 	
 	//insertionSort method for integer
 	public static void insertionSort(int[] arr) {
@@ -93,7 +121,7 @@ public class Utility {
 	
 	
 	//insertionSort method for String
-	public static void insertionSortString(String[] arr) {
+	public static String[] insertionSortString(String[] arr) {
 		String temp=null;
 		for(int i=0; i<arr.length-1;i++) {
 			for(int j=i+1; j<arr.length;j++) {
@@ -104,8 +132,7 @@ public class Utility {
 				}
 			}
 		}
-		for(String i : arr)
-		System.out.println(i);
+		return arr;
 	}
 	
 	//insertionSort method for integer
@@ -124,7 +151,7 @@ public class Utility {
 	
 	
 	//insertionSort method for String
-		public static void insertionSortNewString(String[] arr) {
+		public static String[] insertionSortNewString(String[] arr) {
 			for(int i=1; i<arr.length; i++) {
 				String key = arr[i];
 				int j=i-1;
@@ -134,8 +161,7 @@ public class Utility {
 				}
 				arr[j+1]=key;
 			}
-			for(String i : arr)
-			System.out.println(i);
+			return arr;
 		}
 		
 		
@@ -147,12 +173,56 @@ public class Utility {
 					if(arr[j]> arr[j+1]) {
 						temp= arr[j];
 						arr[j]=arr[j+1];
-						arr[j-1]=temp;
+						arr[j+1]=temp;
 					}
 				}
 			}
 			return arr;
+		}
+		
+		
+		//bubbleSort method for String
+		public static String[] bubbleSortString(String str[]) {
+			for (int i = 0; i < str.length; i++) {
+				for (int j = 0; j < str.length-1; j++) {
+					if (str[j].compareTo(str[j+1])>0) {
+						String temp = null;
+						temp = str[j];
+						str[j]= str[j+1];
+						str[j+1]= temp;
+					}
+				}
+			}
+			return str;
+		}
+		
+		
+		
+		public static long Stopatch(long startt, long endt) {
 			
+			return (endt-startt);
+			
+		}
+
+
+		public static double celsiusTFahrenteit(double temp) {
+			// TODO Auto-generated method stub
+			return ((temp*9/5)+23);
+		}
+
+
+		public static double fahrenheitTCelsius(double temp) {
+			// TODO Auto-generated method stub
+			return ((temp-32)*5/9);
+		}
+
+
+		public static double monthlyPayment(int y, int p, int r) {
+			// TODO Auto-generated method stub
+			int n = 12*y;
+			int rate = r/(12*100);
+			int x= 1+rate;
+			return (p*r)/1-(Math.pow(x, -n));
 		}
 
 

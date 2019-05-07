@@ -1,7 +1,12 @@
 package com.bridgelabz.couponnumber;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class CouponNumber {
 	public static void main(String[] args) {
@@ -19,14 +24,16 @@ class Ran{
 	
 	public void randomNumber(int n) {
 		// TODO Auto-generated method stub
-		int arr[] = new int[n];
-		Random ran = new Random();
 		
-		for(int i=0; i<n; i++) {
-			arr[i] = ran.nextInt(n);
-			
-			System.out.println(arr[i]);
+		Random ran = new Random();
+		Set<Integer> l = new HashSet<Integer>(); 
+		for(int i=0; i<n+n; i++) {
+			l.add(ran.nextInt(n));
 	}
+		Iterator<Integer> itr = l.iterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next());
+		}
 
 }
 }

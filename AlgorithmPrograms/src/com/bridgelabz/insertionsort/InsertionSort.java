@@ -1,16 +1,23 @@
 package com.bridgelabz.insertionsort;
 
-import com.bridgelabz.utility.Utility;
-
 public class InsertionSort {
 	public static void main(String[] args) {
-		int arr[] = { 50, 20,30, 15, 80,17,19};
-		Utility.insertionSort(arr);
-		String arr1[] = {"Aniket", "Shubham", "Shrikant", "Raina", "Dhoni"};
-		Utility.insertionSortString(arr1);
-		Utility.insertionSortNew(arr);
-		for(int i : arr)
-		System.out.println(i);
-		Utility.insertionSortNewString(arr1);
+		String str[] = {"aniket", "shubham", "shrikant", "raina", "dhoni"};
+		for (int k = 0; k < str.length; k++) {
+			char ch[] = str[k].toCharArray();
+			for ( int i = 1; i < ch.length; i++) {
+				char key = ch[i];
+				int j = i-1;
+				while(j>=0 && ch[j]>key) {
+					ch[j+1] =ch[j];
+					j--;
+				}
+				ch[j+1]=key;
+			}
+			for (char c : ch) {
+				System.out.print(c);
+			}
+			System.out.println(" ");
+		}
 	}
 }
